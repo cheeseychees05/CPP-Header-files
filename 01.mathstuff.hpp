@@ -8,27 +8,26 @@
 namespace constants
 {
     constexpr double pi = 3.14159;
-    constexpr const double& π = pi;
+    constexpr const double& \u03C0 = pi;
 
     constexpr double eulers_number = 2.71828;
-    constexpr const double& e = eulers_number;
+    constexpr const double& \u0065 = eulers_number;
 
-    const double golden_ratio = (1 + sqrt(5)) / 2;
-    const double& φ = golden_ratio;
-    const double& phi = golden_ratio;
+    const double golden_ratio = (1 + std::sqrt(5)) / 2;
+    const double& \u03C6 = golden_ratio;
 
-    const double silver_ratio = sqrt(2) + 1;
-    const double& σ = silver_ratio;
+    const double silver_ratio = std::sqrt(2) + 1;
+    const double& \u03B4 = silver_ratio;
  
-    const double supergolden_ratio = ((1 + cbrt((29 + 3 * sqrt(93)) / 2) + cbrt((29 - 3 * sqrt(93)) / 2)) / 3);
-    const double& ψ = supergolden_ratio;
+    const double supergolden_ratio = ((1 + std::cbrt((29 + 3 * std::sqrt(93)) / 2) + cbrt((29 - 3 * std::sqrt(93)) / 2)) / 3);
+    const double& \u03D5 = supergolden_ratio;
 
-    const double imaginary_number = sqrt(-1);
-    const double& i = imaginary_number;
+    const double imaginary_number = std::sqrt(-1);
+    const double& \u0069 = imaginary_number;
     // will show as nan
 
-    const double connective_constant_for_the_hexagonal_lattice = sqrt(2 + sqrt(2));
-    const double& µ = connective_constant_for_the_hexagonal_lattice;
+    const double connective_constant_for_the_hexagonal_lattice = std::sqrt(2 + std::sqrt(2));
+    const double& \u00B5 = connective_constant_for_the_hexagonal_lattice;
 }
 namespace consts = constants;
 namespace shapes{
@@ -39,12 +38,12 @@ namespace shapes{
                 return 2 * constants::pi * r;
             }
             double area(double r){
-                return constants::pi * pow(r, 2);
+                return constants::pi * std::pow(r, 2);
             }
         } 
         namespace ellipse{
             double circumference(double a, double b){
-                return constants::pi * (3 * (a + b) - sqrt((3 * a + b) * (a + 3 * b)));
+                return constants::pi * (3 * (a + b) - std::sqrt((3 * a + b) * (a + 3 * b)));
             }
             double area(double a, double b){
                 return constants::pi * a * b;
@@ -55,24 +54,24 @@ namespace shapes{
         namespace triangle{
             double side_c(double a, double b, double angle_in_degrees){
                 double angle_in_radians = angle_in_degrees * (constants::pi / 180.0);
-                return sqrt(pow(a, 2) + pow(b, 2) - 2 * a * b * cos(angle_in_radians));
+                return std::sqrt(std::pow(a, 2) + std::pow(b, 2) - 2 * a * b * std::cos(angle_in_radians));
             }
             double perimeter(double a, double b, double c){
                 return a + b + c;
             }
             double perimeter(double base, double height){
-                return base + 2 * sqrt(pow(height, 2) + pow(base / 2, 2));
+                return base + 2 * std::sqrt(std::pow(height, 2) + std::pow(base / 2, 2));
             }
             double area(double base, double height){
                 return 0.5 * base * height;
             }
             double area(double a, double b, double c){
                 double s = (a + b + c) / 2;
-                return sqrt(s * (s - a) * (s - b) * (s - c));
+                return std::sqrt(s * (s - a) * (s - b) * (s - c));
             }
             double area(double a, double b, double angle_in_degrees){
                 double angle_in_radians = angle_in_degrees * (constants::pi / 180.0);
-                return 0.5 * a * b * sin(angle_in_radians);
+                return 0.5 * a * b * std::sin(angle_in_radians);
             }
         }
         // 4 sides
@@ -82,25 +81,25 @@ namespace shapes{
             }
             double area(double a, double b, double c, double d, double angle_in_degrees){
                 double angle_in_radians = angle_in_degrees * (constants::pi / 180.0);
-                return 0.5 * (a * b * sin(angle_in_radians) + c * d * sin(angle_in_radians));
+                return 0.5 * (a * b * std::sin(angle_in_radians) + c * d * std::sin(angle_in_radians));
             }
             double area(double a, double b, double c, double d, double angle1_in_degrees, double angle2_in_degrees){
                 double angle1_in_radians = angle1_in_degrees * (constants::pi / 180.0);
                 double angle2_in_radians = angle2_in_degrees * (constants::pi / 180.0);
-                return 0.5 * (a * b * sin(angle1_in_radians) + c * d * sin(angle2_in_radians));
+                return 0.5 * (a * b * std::sin(angle1_in_radians) + c * d * std::sin(angle2_in_radians));
             }
             double area(double a, double b, double c, double d, double angle1_in_degrees, double angle2_in_degrees, double angle3_in_degrees){
                 double angle1_in_radians = angle1_in_degrees * (constants::pi / 180.0);
                 double angle2_in_radians = angle2_in_degrees * (constants::pi / 180.0);
                 double angle3_in_radians = angle3_in_degrees * (constants::pi / 180.0);
-                return 0.5 * (a * b * sin(angle1_in_radians) + c * d * sin(angle2_in_radians) + a * d * sin(angle3_in_radians));
+                return 0.5 * (a * b * std::sin(angle1_in_radians) + c * d * std::sin(angle2_in_radians) + a * d * std::sin(angle3_in_radians));
             }
             double area(double a, double b, double c, double d, double angle1_in_degrees, double angle2_in_degrees, double angle3_in_degrees, double angle4_in_degrees){
                 double angle1_in_radians = angle1_in_degrees * (constants::pi / 180.0);
                 double angle2_in_radians = angle2_in_degrees * (constants::pi / 180.0);
                 double angle3_in_radians = angle3_in_degrees * (constants::pi / 180.0);
                 double angle4_in_radians = angle4_in_degrees * (constants::pi / 180.0);
-                return 0.5 * (a * b * sin(angle1_in_radians) + c * d * sin(angle2_in_radians) + a * d * sin(angle3_in_radians) + b * c * sin(angle4_in_radians));
+                return 0.5 * (a * b * std::sin(angle1_in_radians) + c * d * std::sin(angle2_in_radians) + a * d * std::sin(angle3_in_radians) + b * c * std::sin(angle4_in_radians));
             }
             double area(double diagonal, double perpendicular_to_diagonal1, double perpendicular_to_diagonal2){
                 return 0.5 * diagonal * (perpendicular_to_diagonal1 + perpendicular_to_diagonal2);
@@ -110,7 +109,7 @@ namespace shapes{
                     return 4 * side_length;
                 }
                 double area(double side_length){
-                    return pow(side_length, 2);
+                    return std::pow(side_length, 2);
                 }
             }   
             namespace rectangle{
